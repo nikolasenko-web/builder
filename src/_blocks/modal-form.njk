@@ -1,0 +1,157 @@
+<div x-data="{ step: 1 }" class=" w-full xl:w-[570px]  max-w-[570px] mx-auto p-6 bg-[#EFF3F8] border border-[#E6EBEE] rounded-[20px]">
+
+	<!-- Заголовки этапов -->
+	<div x-show="step <= 3" class="flex gap-3 max-xl:text-sm font-medium  text-blue-500 mb-7 ">
+
+		<div class="flex gap-1 items-center border-b-2 pb-2" :class="step === 1 ? 'border-b-2 border-blue-500 text-blue-500 font-semibold' : ''">
+			<span x-show="step <= 1">1</span>
+			<svg x-show="step > 1" width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M4.60556 9.29441L1.46031 6.43096L0.787109 7.17041L4.70231 10.7348L10.822 3.44162L10.056 2.79883L4.60556 9.29441Z" fill="#0078D2" />
+			</svg>
+			<span>Когда и куда</span>
+		</div>
+
+		<div class="flex gap-1 items-center border-b-2 pb-2" :class="step === 2 ? 'border-b-2 border-blue-500 text-blue-500 font-semibold' : ''">
+			<span x-show="step <= 2">2</span>
+			<svg x-show="step > 2" width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M4.60556 9.29441L1.46031 6.43096L0.787109 7.17041L4.70231 10.7348L10.822 3.44162L10.056 2.79883L4.60556 9.29441Z" fill="#0078D2" />
+			</svg>
+			<span>Груз</span>
+		</div>
+		<div class="flex gap-1 items-center border-b-2 pb-2" :class="step === 3 ? 'border-b-2 border-blue-500 text-blue-500 font-semibold' : ''">
+			<span x-show="step <= 3">3</span>
+			<svg x-show="step > 3" width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M4.60556 9.29441L1.46031 6.43096L0.787109 7.17041L4.70231 10.7348L10.822 3.44162L10.056 2.79883L4.60556 9.29441Z" fill="#0078D2" />
+			</svg>
+			<span>Контакты</span>
+		</div>
+	</div>
+
+	<!-- Шаг 1 -->
+	<div x-show="step === 1">
+		<div>
+			<label for="step-one-1" class="sr-only">
+				Место погрузки
+			</label>
+			<input type="text" id="step-one-1" name="Место погрузки" required class="text-base xl:text-[18px] text-[#495057] !leading-[118%] mt-[10px] block w-full rounded-[12px] border border-[#E0E7FF]  p-5 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 placeholder:text-[#495057]" placeholder="Место погрузки" />
+		</div>
+		<div>
+			<label for="step-one-2" class="sr-only">
+				Место доставки
+			</label>
+			<input type="text" id="step-one-2" name="Место доставки" required class="text-base xl:text-[18px] text-[#495057] !leading-[118%] mt-[10px] block w-full rounded-[12px] border border-[#E0E7FF]  p-5 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 placeholder:text-[#495057]" placeholder="Место доставки" />
+		</div>
+		<div>
+			<label for="step-one-3" class="sr-only">
+				Дата готовности груза
+			</label>
+			<input type="text" id="step-one-3" name="Дата готовности груза" required class="text-base xl:text-[18px] text-[#495057] !leading-[118%] mt-[10px] block w-full rounded-[12px] border border-[#E0E7FF]  p-5 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 placeholder:text-[#495057]" placeholder="Дата готовности груза" />
+		</div>
+		<div>
+			<label for="step-one-4" class="sr-only">
+				Крайняя дата доставки груза
+			</label>
+			<input type="text" id="step-one-4" name="Крайняя дата доставки груза" required class="text-base xl:text-[18px] text-[#495057] !leading-[118%] mt-[10px] block w-full rounded-[12px] border border-[#E0E7FF]  p-5 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 placeholder:text-[#495057]" placeholder="Крайняя дата доставки груза" />
+		</div>
+		<div class="text-right mt-7 ">
+			<button @click="step++" class="px-4 py-2 bg-blue-500 text-white text-lg rounded-lg  hover:bg-[#7991E8]">
+				Следующий шаг
+			</button>
+		</div>
+	</div>
+
+	<!-- Шаг 2 -->
+	<div x-show="step === 2">
+
+		<div>
+			<label for="step-two-1" class="sr-only">
+				Наименование груза
+			</label>
+			<input type="text" id="step-two-1" name="Наименование груза" required class="text-base xl:text-[18px] text-[#495057] !leading-[118%] mt-[10px] block w-full rounded-[12px] border border-[#E0E7FF]  p-5 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 placeholder:text-[#495057]" placeholder="Наименование груза" />
+		</div>
+		<div>
+			<label for="step-two-2" class="sr-only">
+				Количество мест
+			</label>
+			<input type="text" id="step-two-2" name="Количество мест" required class="text-base xl:text-[18px] text-[#495057] !leading-[118%] mt-[10px] block w-full rounded-[12px] border border-[#E0E7FF]  p-5 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 placeholder:text-[#495057]" placeholder="Количество мест" />
+		</div>
+		<div>
+			<label for="step-two-3" class="sr-only">
+				Общий вес груза
+			</label>
+			<input type="text" id="step-two-3" name="Общий вес груза" required class="text-base xl:text-[18px] text-[#495057] !leading-[118%] mt-[10px] block w-full rounded-[12px] border border-[#E0E7FF]  p-5 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 placeholder:text-[#495057]" placeholder="Общий вес груза" />
+		</div>
+		<div>
+			<label for="step-two-4" class="sr-only">
+				Размеры груза
+			</label>
+			<input type="text" id="step-two-4" name="Размеры груза" required class="text-base xl:text-[18px] text-[#495057] !leading-[118%] mt-[10px] block w-full rounded-[12px] border border-[#E0E7FF]  p-5 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 placeholder:text-[#495057]" placeholder="Размеры груза" />
+		</div>
+
+		<div class="flex justify-between mt-7 ">
+			<button @click="step--" class="px-6 py-2 bg-[#E6EBEE] text-blue-500 text-lg rounded-lg  hover:bg-gray-200  flex items-center gap-1">
+				<svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M4.40753 5.00038L7.70464 1.70328L6.29043 0.289062L0.579102 6.00039L6.29043 11.7117L7.70464 10.2975L4.40752 7.00038H13.0004V5.00038H4.40753Z" fill="#4F75FF" />
+				</svg>
+				Назад
+			</button>
+			<button @click="step++" class="px-4 py-2 bg-blue-500 text-white text-lg rounded-lg  hover:bg-[#7991E8]">
+				Следующий шаг
+			</button>
+		</div>
+	</div>
+
+	<!-- Шаг 3 -->
+	<div x-show="step === 3">
+
+		<div>
+			<label for="step-three-1" class="sr-only">
+				Ваше Имя
+			</label>
+			<input type="text" id="step-three-1" name="Ваше Имя" required class="text-base xl:text-[18px] text-[#495057] !leading-[118%] mt-[10px] block w-full rounded-[12px] border border-[#E0E7FF]  p-5 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 placeholder:text-[#495057]" placeholder="Ваше Имя" />
+		</div>
+		<div>
+			<label for="step-three-2" class="sr-only">
+				E-mail или телефон
+			</label>
+			<input type="text" id="step-three-2" name="E-mail или телефон" required class="text-base xl:text-[18px] text-[#495057] !leading-[118%] mt-[10px] block w-full rounded-[12px] border border-[#E0E7FF]  p-5 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 placeholder:text-[#495057]" placeholder="E-mail или телефон" />
+		</div>
+		<div>
+			<label for="step-three-3" class="sr-only">
+				Идея стоимости от грузовладельца
+			</label>
+			<input type="text" id="step-three-3" name="Идея стоимости от грузовладельца" required class="text-base xl:text-[18px] text-[#495057] !leading-[118%] mt-[10px] block w-full rounded-[12px] border border-[#E0E7FF]  p-5 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 placeholder:text-[#495057]" placeholder="Идея стоимости от грузовладельца" />
+		</div>
+		<div>
+			<label for="step-three-4" class="sr-only">
+				Комментарий
+			</label>
+			<input type="text" id="step-three-4" name="Комментарий" required class="text-base xl:text-[18px] text-[#495057] !leading-[118%] mt-[10px] block w-full rounded-[12px] border border-[#E0E7FF]  p-5 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 placeholder:text-[#495057]" placeholder="Комментарий" />
+		</div>
+
+
+		<div class="flex justify-between mt-7 ">
+			<button @click="step--" class="px-6 py-2 bg-[#E6EBEE] text-blue-500 text-lg rounded-lg  hover:bg-gray-200  flex items-center gap-1">
+				<svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M4.40753 5.00038L7.70464 1.70328L6.29043 0.289062L0.579102 6.00039L6.29043 11.7117L7.70464 10.2975L4.40752 7.00038H13.0004V5.00038H4.40753Z" fill="#4F75FF" />
+				</svg>
+				Назад
+			</button>
+			<button @click="step++" class="px-4 py-2 bg-blue-500 text-white text-lg rounded-lg  hover:bg-[#7991E8]">
+				Следующий шаг
+			</button>
+		</div>
+	</div>
+
+	<!-- Сообщение "Спасибо!" -->
+	<div x-show="step === 4">
+		<div class=" text-xl text-blue-500 font-semibold mb-5">
+			Спасибо! Ваша заявка принята.
+		</div>
+		<div class=" text-[#495057] mb-5">Наш менеджер свяжется с вами в ближайшее время, для согласования всех деталей.</div>
+		<button @click="openModal = false" class=" block ml-auto px-4 py-2 bg-blue-500 text-white text-lg rounded-lg  hover:bg-[#7991E8]">
+			Закрыть
+		</button>
+	</div>
+
+</div>

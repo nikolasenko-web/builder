@@ -1,0 +1,16 @@
+{
+  "name": "typeface-montserrat-cyrillic",
+  "version": "1.0.0",
+  "description": "Montserrat typeface cyrillic",
+  "main": "index.css",
+  "keywords": [
+    "typeface",
+    "font",
+    "font family",
+    "google fonts",
+    "montserrat"
+  ],
+  "author": "Michael Yankelev <myankelev@gmail.com>",
+  "license": "MIT",
+  "repository": "https://github.com/FSM1/typeface-montserrat-cyrillic"
+}

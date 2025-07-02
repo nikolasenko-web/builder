@@ -1,0 +1,30 @@
+<div x-data="{ open: false, selected: '{{ name  }}' }" class="relative w-full">
+
+	<!-- Trigger -->
+	<button @click="open = !open" class="relative w-full text-[#495057]  text-left bg-white rounded-xl border border-[#E0E7FF] pl-[50px] px-4 py-2 focus:outline-none  h-[64px]">
+
+		<span x-text="selected"></span>
+		{{ icon|safe }}
+		<svg class="absolute right-5 top-1/2 -translate-y-1/2  w-4 aspect-square xl:w-6 " width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984L16.59 8.58984Z" fill="#495057" />
+		</svg>
+
+	</button>
+
+	<!-- Dropdown -->
+	<ul x-show="open" @click.away="open = false" x-transition.duration.100ms style="display: none;" class="absolute z-10 mt-2 w-full text-[#495057]  text-left bg-white rounded-xl border border-[#E0E7FF] px-2 py-2">
+		{% for item in values %}
+		<li>
+			<button @click="selected = '{{ item }}'; open = false; $refs.hiddenSelect.value = '{{ item }}';" type="button" class="w-full text-left px-4 py-2 hover:bg-blue-500 hover:text-white transition text-gray-700 rounded-lg  ">{{ item }}</button>
+		</li>
+		{% endfor %}
+
+	</ul>
+
+	<select name="{{ name  }}" class="sr-only " x-ref="hiddenSelect">
+		<option selected value="">{{ name }}</option>
+		{% for item in values %}
+		<option value="'{{ item }}'" :selected="selected === '{{ item }}'">{{ item }}</option>
+		{% endfor %}
+	</select>
+</div>

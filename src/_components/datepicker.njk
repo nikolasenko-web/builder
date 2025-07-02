@@ -1,0 +1,46 @@
+<div x-data="{ open: false }" class="relative w-full">
+
+	<!-- Trigger -->
+	<div class="relative ">
+		<input @click="open = !open" id="secondaryInput" class=" cursor-pointer w-full text-[#495057] bg-white rounded-xl border border-[#E0E7FF] pl-[50px] px-4 py-2 focus:outline-none  h-16 placeholder:text-[#495057] " type="text" placeholder="Дата готовности груза" autocomplete="off" readonly />
+		<svg class=" absolute left-5 top-1/2 -translate-y-1/2" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M7.33268 3.66671H6.59953C5.57277 3.66671 5.059 3.66671 4.66683 3.86653C4.32187 4.0423 4.0416 4.32256 3.86584 4.66752C3.66602 5.05969 3.66602 5.57346 3.66602 6.60022V7.33337M7.33268 3.66671H14.666M7.33268 3.66671V1.83337M14.666 3.66671H15.3995C16.4263 3.66671 16.939 3.66671 17.3311 3.86653C17.6761 4.0423 17.9573 4.32256 18.1331 4.66752C18.3327 5.05931 18.3327 5.57245 18.3327 6.59721V7.33337M14.666 3.66671V1.83337M3.66602 7.33337V15.4002C3.66602 16.427 3.66602 16.9401 3.86584 17.3323C4.0416 17.6772 4.32187 17.958 4.66683 18.1337C5.05862 18.3334 5.57176 18.3334 6.59652 18.3334H15.4022C16.4269 18.3334 16.9393 18.3334 17.3311 18.1337C17.6761 17.958 17.9573 17.6772 18.1331 17.3323C18.3327 16.9405 18.3327 16.4281 18.3327 15.4033V7.33337M3.66602 7.33337H18.3327M14.666 14.6667H14.6678L14.6678 14.6685L14.666 14.6685V14.6667ZM10.9993 14.6667H11.0012L11.0011 14.6685L10.9993 14.6685V14.6667ZM7.33268 14.6667H7.33452L7.33447 14.6685L7.33268 14.6685V14.6667ZM14.6678 11V11.0019L14.666 11.0018V11H14.6678ZM10.9993 11H11.0012L11.0011 11.0019L10.9993 11.0018V11ZM7.33268 11H7.33452L7.33447 11.0019L7.33268 11.0018V11Z" stroke="#495057" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round" />
+		</svg>
+
+		<svg class="absolute right-5 top-1/2 -translate-y-1/2  w-4 aspect-square xl:w-6 " width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984L16.59 8.58984Z" fill="#495057" />
+		</svg>
+	</div>
+
+	<div x-show="open" @click.away="open = false" x-transition.duration.100ms style="display: none;" class="custom-container absolute z-10 mt-2 w-full text-[#495057]  text-left bg-white rounded-xl border border-[#E0E7FF] flex justify-center">
+		<input type="hidden" name="" id="datepicker" autocomplete="off" data-date-format="dd/mm/yyyy" data-language='ru' readonly>
+	</div>
+
+</div>
+
+
+<style>
+	.air-datepicker {
+		--adp-cell-background-color-selected: #fff;
+		--adp-cell-background-color-selected-hover: #fff;
+		--adp-cell-color-selected: #495057;
+		--adp-day-name-color: #6C757D;
+		--adp-accent-color: #4F75FF;
+		--adp-padding: 20px 20px 20px 20px;
+		--adp-nav-arrow-color: #4F75FF;
+		--adp-font-size: 18px;
+		--adp-day-cell-width: 50px;
+		--adp-day-cell-height: 50px;
+		--adp-cell-border-radius: 100px;
+		--adp-border-radius: 16px;
+		--adp-transition-offset: 0px;
+		--adp-border-color-inline: #fff;
+	}
+
+	@media (max-width: 1200px) {
+		.air-datepicker {
+			--adp-day-cell-width: 40px;
+			--adp-day-cell-height: 40px;
+		}
+	}
+</style>

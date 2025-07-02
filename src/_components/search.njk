@@ -1,0 +1,29 @@
+<div x-data="citySearch()" class="relative w-full flex flex-col gap-[10px] xl:col-span-2 " @click.away="open = false">
+	
+	<div class=" relative ">
+		{# invalid:border-[#E84A4A] invalid:placeholder:text-[#E84A4A] -- Проверка валидности поля, зависит от способа проверки #}
+		<input required class="w-full text-[#495057] bg-white rounded-xl border border-[#E0E7FF] pl-[50px] px-4 py-2 focus:outline-none  h-16 placeholder:text-[#495057]  " x-model="query" x-on:input="filterCities" x-on:focus="showAllCities" x-on:keydown.arrow-down.prevent="highlightNext" x-on:keydown.arrow-up.prevent="highlightPrev" x-on:keydown.enter.prevent="selectCity" id="city-search" type="text" placeholder="Место {{ name }}" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="city-listbox" :aria-expanded="open.toString()" aria-haspopup="listbox" aria-activedescendant="activeDescendant" />
+		<svg class=" absolute left-5 top-1/2 -translate-y-1/2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M5 9.92285C5 14.7747 9.24448 18.7869 11.1232 20.3252C11.3921 20.5454 11.5281 20.6568 11.7287 20.7132C11.8849 20.7572 12.1148 20.7572 12.271 20.7132C12.472 20.6567 12.6071 20.5463 12.877 20.3254C14.7557 18.7871 18.9999 14.7751 18.9999 9.9233C18.9999 8.08718 18.2625 6.32605 16.9497 5.02772C15.637 3.72939 13.8566 3 12.0001 3C10.1436 3 8.36301 3.7295 7.05025 5.02783C5.7375 6.32616 5 8.08674 5 9.92285Z" stroke="#495057" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			<path d="M10 9C10 10.1046 10.8954 11 12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9Z" stroke="#495057" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+		</svg>
+	</div>
+
+	<div x-show="open" style="display: none;" x-collapse.duration.100ms class="bg-white w-full rounded-xl  ">
+		<div class="px-5 py-5">
+			<div class="text-[#495057] mb-[10px]">Выберите город {{ name }}:</div>
+			<ul class="overflow-auto max-h-[320px] " id="city-listbox" role="listbox">
+				<template x-for="(city, index) in filtered" :key="index">
+					<li @click="selectCityFromList(city)" :id="'city-option-' + index" role="option" :aria-selected="highlight === index" class="cursor-pointer xl:px-12 px-10   py-2 hover:bg-blue-500 relative text-[#495057] hover:text-white border-[#E6EBEE] hover:border-blue-500 border-b last:border-none group hover:rounded-xl  ">
+						<div class=" mb-1" x-text="city"></div>
+						<div class=" opacity-60 text-xs ">Россия</div>
+						<svg class=" stroke-[#495057] group-hover:stroke-white  absolute left-2 xl:left-4 top-1/2 -translate-y-1/2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M5 9.92285C5 14.7747 9.24448 18.7869 11.1232 20.3252C11.3921 20.5454 11.5281 20.6568 11.7287 20.7132C11.8849 20.7572 12.1148 20.7572 12.271 20.7132C12.472 20.6567 12.6071 20.5463 12.877 20.3254C14.7557 18.7871 18.9999 14.7751 18.9999 9.9233C18.9999 8.08718 18.2625 6.32605 16.9497 5.02772C15.637 3.72939 13.8566 3 12.0001 3C10.1436 3 8.36301 3.7295 7.05025 5.02783C5.7375 6.32616 5 8.08674 5 9.92285Z" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M10 9C10 10.1046 10.8954 11 12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9Z" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</li>
+				</template>
+			</ul>
+		</div>
+	</div>
+</div>
