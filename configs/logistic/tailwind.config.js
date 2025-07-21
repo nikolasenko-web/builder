@@ -8,17 +8,24 @@ export default {
     container: {
       center: true,
       screens: {
-        'lg': '1392px',
+        'xl': '1120px',
+        '2xl': '1300px',
+        '3xl': '1440px',
       },
-      padding: '16px',
     },
     extend: {
+      screens: {
+        'xl': '1200px',
+        '2xl': '1440px',
+        '3xl': '1680px',
+        '4xl': '1920px',
+      },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
         blue: {
-          500: '#2961DA',
+          500: '#4F75FF',
         },
       }
     },

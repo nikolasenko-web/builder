@@ -5,13 +5,14 @@
 	<meta charset="UTF-8">
 	<title>{{ title or "Default Title" }}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link rel="stylesheet" href="http://localhost:5173/fonts/typeface-montserrat-cyrillic/index.css" />
+	<link rel="stylesheet" href="http://localhost:5173/fonts/font.css" />
 	<link rel="stylesheet" href="http://localhost:5173/main.css" />
 
 	<script type="module" src="http://localhost:5173/alpine.js"></script>
 </head>
 
 <body class="">
+	{% include "src/_blocks/header.njk" %}
 	<main class="pt-[87px]">
 		{{ content | safe }}
 	</main>
